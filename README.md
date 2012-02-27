@@ -1,7 +1,7 @@
-Java Plugin System
+Java Simple Plugin System
 ==================
 
-Java Plugin System is lightweight plugin framework for Java applications.
+Java Simple Plugin System is lightweight plugin framework for Java applications.
 
 Features:
 
