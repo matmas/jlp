@@ -1,0 +1,1 @@
+Files in this directory do not need to be together, Each plugin can be in its own project with its own resource files.
