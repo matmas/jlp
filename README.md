@@ -6,6 +6,8 @@ Java Simple Plugin System is lightweight plugin framework for Java applications.
 Features:
 
 - very simple usage
+- very lightweight (just 346 lines of code)
+- no dependency on other libraries
 - no configuration files
 - plugins as JARs or built in other JARs
 - auto-discovery of plugins in `/plugins` folder
