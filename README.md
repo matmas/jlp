@@ -11,7 +11,8 @@ Features:
 - auto-discovery of plugins in `/plugins` folder
 - plugins are collections of extensions
 - extensions as POJOs, extension points as interfaces or abstract classes
-- declare extension just by creating a POJO class implementing an extension point (this also serves as dependency declaration)
+- declare extension point just by creating a interface or abstract class
+- declare extension just by creating a POJO class implementing an extension point (no other dependency declaration needed)
 - support to declare ordering of extensions relative to others using annotations (@InitializeAfter, @InitializeBefore), handy e.g. for menu items
 - no explicit versioning. Just pick different class/interface name for backwards incompatible extension point.
 
