@@ -9,10 +9,11 @@ Features:
 - no configuration files
 - plugins as JARs or built in other JARs
 - auto-discovery of plugins in `/plugins` folder
-- no versioning of plugins, plugins are collections of extensions - identified with {package.classname}
+- plugins are collections of extensions
 - extensions as POJOs, extension points as interfaces or abstract classes
 - declare extension just by creating a POJO class implementing an extension point (this also serves as dependency declaration)
 - support to declare ordering of extensions relative to others using annotations (@InitializeAfter, @InitializeBefore), handy e.g. for menu items
+- no explicit versioning. Just pick different class/interface name for backwards incompatible extension point.
 
 *Demo: package net.matmas.demoeditor*
 
