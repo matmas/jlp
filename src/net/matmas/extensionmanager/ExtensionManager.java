@@ -260,8 +260,8 @@ public class ExtensionManager {
 
 				if (!isExtension(valueClass, interfaceOrClass)) {
 					initializeAfter.get(keyClass).remove(valueClass);
-//					throw new RuntimeException("@" + InitializeAfter.class.toString().replaceFirst("^.*\\.", "") +
-//											" and @" + InitializeBefore.class.toString().replaceFirst("^.*\\.", "") +
+//					throw new RuntimeException("@" + After.class.toString().replaceFirst("^.*\\.", "") +
+//											" and @" + Before.class.toString().replaceFirst("^.*\\.", "") +
 //											" must refer to compatible classes.");
 				}
 			}
