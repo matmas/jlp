@@ -21,14 +21,14 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import net.matmas.extensionmanager.BasicExtensionPoint;
 import net.matmas.extensionmanager.annotations.Disabled;
-import net.matmas.extensionmanager.annotations.InitializeBefore;
+import net.matmas.extensionmanager.annotations.Before;
 
 /**
  *
  * @author matmas
  */
 @Disabled
-@InitializeBefore({MainFrame.class})
+@Before({MainFrame.class})
 public class LookAndFeel implements BasicExtensionPoint {
 
 	public LookAndFeel() {

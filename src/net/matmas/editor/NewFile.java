@@ -21,7 +21,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import net.matmas.extensionmanager.annotations.InitializeBefore;
+import net.matmas.extensionmanager.annotations.Before;
 import net.matmas.mainmenu.MenuItemExtensionPoint;
 import net.matmas.mainmenu.Quit;
 import net.matmas.toolbar.ToolBarItemExtensionPoint;
@@ -31,7 +31,7 @@ import net.matmas.tools.GraphicsTools;
  *
  * @author matmas
  */
-@InitializeBefore({Quit.class})
+@Before({Quit.class})
 public class NewFile implements MenuItemExtensionPoint, ToolBarItemExtensionPoint {
 
 	private Action action = new AbstractAction() {

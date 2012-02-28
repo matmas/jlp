@@ -15,7 +15,7 @@ Features:
 - extensions as POJOs, extension points as interfaces or abstract classes
 - declare extension point just by creating a interface or abstract class
 - declare extension just by creating a POJO class implementing an extension point (no other dependency declaration needed)
-- support to declare ordering of extensions relative to others using annotations (@InitializeAfter, @InitializeBefore), handy e.g. for menu items
+- support to declare ordering of extensions relative to others using annotations (@After, @Before), handy e.g. for menu items
 - no explicit versioning. Just pick different class/interface name for backwards incompatible extension point.
 
 *Demo: package net.matmas.demoeditor*
@@ -32,7 +32,7 @@ Example of usage:
         }
     }
     
-    @InitializeBefore({Bar.class})
+    @Before({Bar.class})
     public class Foo implements FooBarExtensionPoint {
         public String getName() {
             return "Foo";

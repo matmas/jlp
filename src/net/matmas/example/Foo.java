@@ -4,13 +4,13 @@
  */
 package net.matmas.example;
 
-import net.matmas.extensionmanager.annotations.InitializeBefore;
+import net.matmas.extensionmanager.annotations.Before;
 
 /**
  *
  * @author matmas
  */
-@InitializeBefore({Bar.class})
+@Before({Bar.class})
 public class Foo implements FooBarExtensionPoint {
 	public String getName() {
 		return "Foo";

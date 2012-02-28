@@ -22,7 +22,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JOptionPane;
 import net.matmas.extensionmanager.ExtensionManager;
-import net.matmas.extensionmanager.annotations.InitializeAfter;
+import net.matmas.extensionmanager.annotations.After;
 import net.matmas.mainframe.MainFrame;
 import net.matmas.mainmenu.MenuItemExtensionPoint;
 import net.matmas.mainmenu.Quit;
@@ -33,7 +33,7 @@ import net.matmas.tools.GraphicsTools;
  *
  * @author matmas
  */
-@InitializeAfter({Quit.class})
+@After({Quit.class})
 public class About implements MenuItemExtensionPoint, ToolBarItemExtensionPoint {
 
 	private Action action = new AbstractAction() {

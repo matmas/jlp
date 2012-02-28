@@ -28,6 +28,6 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface InitializeBefore {
+public @interface Before {
 	Class[] value();
 }

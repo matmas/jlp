@@ -37,8 +37,8 @@ import java.util.jar.JarInputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import net.matmas.extensionmanager.annotations.Disabled;
-import net.matmas.extensionmanager.annotations.InitializeAfter;
-import net.matmas.extensionmanager.annotations.InitializeBefore;
+import net.matmas.extensionmanager.annotations.After;
+import net.matmas.extensionmanager.annotations.Before;
 
 /**
  *
@@ -226,7 +226,7 @@ public class ExtensionManager {
 
 		Map<Class, Set<Class>> initializeAfter = new Hashtable<Class, Set<Class>>();
 		for (Class clazz : unsortedExtensions) {
-			InitializeAfter classInitializeAfter = (InitializeAfter)clazz.getAnnotation(InitializeAfter.class);
+			After classInitializeAfter = (After)clazz.getAnnotation(After.class);
 			if (classInitializeAfter != null) {
 				if (!initializeAfter.containsKey(clazz)) {
 					initializeAfter.put(clazz, new HashSet<Class>());
@@ -234,15 +234,15 @@ public class ExtensionManager {
 				initializeAfter.get(clazz).addAll(Arrays.asList(classInitializeAfter.value()));
 			}
 
-			InitializeBefore classInitializeBefore = (InitializeBefore)clazz.getAnnotation(InitializeBefore.class);
+			Before classInitializeBefore = (Before)clazz.getAnnotation(Before.class);
 			if (classInitializeBefore != null) {
 				for (Class classBefore : classInitializeBefore.value()) {
 					if (!initializeAfter.containsKey(classBefore)) {
 						initializeAfter.put(classBefore, new HashSet<Class>());
 					}
 					if (initializeAfter.containsKey(clazz) && initializeAfter.get(clazz).contains(classBefore)) {
-						throw new RuntimeException("@" + InitializeAfter.class.toString().replaceFirst("^.*\\.", "") +
-												" and @" + InitializeBefore.class.toString().replaceFirst("^.*\\.", "") +
+						throw new RuntimeException("@" + After.class.toString().replaceFirst("^.*\\.", "") +
+												" and @" + Before.class.toString().replaceFirst("^.*\\.", "") +
 												"must not conflict with each other.");
 					}
 					initializeAfter.get(classBefore).add(clazz);
@@ -253,8 +253,8 @@ public class ExtensionManager {
 		for (Class keyClass : initializeAfter.keySet()) {
 			for (Class valueClass : initializeAfter.get(keyClass)) {
 				if (valueClass == keyClass) {
-					throw new RuntimeException("@" + InitializeAfter.class.toString().replaceFirst("^.*\\.", "") +
-											" and @" + InitializeBefore.class.toString().replaceFirst("^.*\\.", "") +
+					throw new RuntimeException("@" + After.class.toString().replaceFirst("^.*\\.", "") +
+											" and @" + Before.class.toString().replaceFirst("^.*\\.", "") +
 											" must not refer to the same class where used.");
 				}
 
@@ -293,8 +293,8 @@ public class ExtensionManager {
 				if (counter > unsortedExtensions.size()) {
 					if (problematicClasses.size() > 0 && clazz == problematicClasses.get(0)) {
 						throw new RuntimeException("Conflict with " +
-							"@" + InitializeAfter.class.toString().replaceFirst("^.*\\.", "") +
-							" and @" + InitializeBefore.class.toString().replaceFirst("^.*\\.", "") +
+							"@" + After.class.toString().replaceFirst("^.*\\.", "") +
+							" and @" + Before.class.toString().replaceFirst("^.*\\.", "") +
 							" between classes: " + problematicClasses);
 					}
 					problematicClasses.add(clazz);
