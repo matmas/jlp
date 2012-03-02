@@ -10,7 +10,7 @@ Features:
 - no dependency on other libraries
 - no configuration files
 - plugins as JARs or built in other JARs
-- auto-discovery of plugins in `/plugins` folder
+- auto-discovery of plugins in `./plugins` folder
 - plugins are collections of extensions
 - extensions as POJOs, extension points as interfaces or abstract classes
 - declare extension point just by creating a interface or abstract class
