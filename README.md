@@ -6,7 +6,7 @@ JLP is a plugin framework for Java applications.
 Features:
 
 - simple usage
-- lightweight framework (just 346 lines of code)
+- small core (just 346 lines of code)
 - no dependency on other libraries
 - no configuration files
 - plugins as JARs or built in other JARs
